@@ -7,6 +7,7 @@ import (
 
 func main() {
 	dir, _ := os.Getwd()
-	http.Handle("/", http.FileServer(http.Dir(dir+"/wasm/")))
+	http.Handle("/wasm/", http.FileServer(http.Dir(dir+"/wasm/")))
+	http.Handle("/", http.FileServer(http.Dir(dir+"/uu-calc/")))
 	http.ListenAndServe(":8080", nil)
 }
